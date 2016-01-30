@@ -19,7 +19,7 @@ class AccountViewSet(viewsets.ModelViewSet):
             return (permissions.AllowAny(), )
 
         # Any user is able to create a new account
-        if self.requiest.method == 'POST':
+        if self.request.method == 'POST':
             return (permissions.AllowAny(), )
 
         # Only the owner of the account is capable of updating account values
