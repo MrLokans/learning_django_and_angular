@@ -3,3 +3,4 @@
 **/node_modules/
 **/template/
 **/*.sqlite3
+**/creds.txt
