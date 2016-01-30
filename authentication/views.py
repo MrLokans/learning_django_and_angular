@@ -6,6 +6,8 @@ from authentication.permissions import IsAccountOwner
 from authentication.serializers import AccountSerializer
 
 
+# ModelViewSet offers an interface for
+# listing, creating, retrieving, updating and destroying objects of a given model
 class AccountViewSet(viewsets.ModelViewSet):
 
     lookup_field = 'username'
@@ -16,15 +18,19 @@ class AccountViewSet(viewsets.ModelViewSet):
         if self.request.method in permissions.SAFE_METHODS:
             return (permissions.AllowAny(), )
 
+        # Any user is able to create a new account
         if self.requiest.method == 'POST':
             return (permissions.AllowAny(), )
 
+        # Only the owner of the account is capable of updating account values
         return (permissions.IsAuthenticated(), IsAccountOwner(), )
 
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
+            # By default User object is saved as is which is not
+            # a great decision in terms of security
             Account.objects.create_user(**serializer.validated_data)
             return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
         return Response({
