@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('angulardjango.authentication.controllers')
-           .controlleR('LoginController', LoginController);
+           .controller('LoginController', LoginController);
 
     LoginController.$inject = ['$location', '$scope', 'Authentication'];
 

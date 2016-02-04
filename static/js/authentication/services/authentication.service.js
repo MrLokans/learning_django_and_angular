@@ -23,7 +23,13 @@
                 username: username,
                 password: password,
                 email: email
-            });
+            }).then(registerSuccessFn, registerErrorFn);
+        }
+
+        function login(email, password){
+            return $http.post('/api/v1/auth/login/', {
+                email: email, password: password
+            }).then(loginSuccessFn, loginErrorFn);
         }
 
         function loginSuccessFn(data, status, headers, config){
@@ -36,10 +42,13 @@
             console.log('Login went wrong.');
         }
 
-        function login(email, password){
-            return $http.post('/api/v1/auth/login', {
-                email: email, password: password
-            }).then(loginSuccessFn, loginErrFn);
+
+        function registerSuccessFn(data, status, headers, config) {
+          Authentication.login(email, password);
+        }
+
+        function registerErrorFn(data, status, headers, config) {
+          console.error('Registration failed!');
         }
 
         function getAuthenticatedAccount(){
