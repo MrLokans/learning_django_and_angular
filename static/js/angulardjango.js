@@ -1,5 +1,6 @@
 (function(){
-    angular.module('angulardjango', ['angulardjango.routes',
+    angular.module('angulardjango', ['angulardjango.config',
+                                     'angulardjango.routes',
                                      'angulardjango.authentication'
                                      ]);
     angular.module('angulardjango.routes', ['ngRoute']);
@@ -10,10 +11,12 @@
 
     angular.module('angulardjango').run(run);
 
+    run.$inject = ["$http"];
+
     // Updating xsrf headers to cope with Django csrf token protection
     function run($http){
         $http.defaults.xsrfHeaderName = 'X-CSRFToken';
-        $http.defaults.xsrfCoolieName = 'csrftoken';
+        $http.defaults.xsrfCookieName = 'csrftoken';
     }
 })();
 
