@@ -18,9 +18,9 @@ class PostViewSet(viewsets.ModelViewSet):
 
     # called before model creation
     def perform_create(self, serializer):
-    instance = serializer.save(author=self.request.user)
+        instance = serializer.save(author=self.request.user)
 
-    return super().perform_create(serializer)
+        return super().perform_create(serializer)
 
 
 class AccountPostsViewSet(viewsets.ViewSet):
