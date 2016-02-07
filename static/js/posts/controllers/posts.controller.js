@@ -58,7 +58,7 @@
 
             for (var i=0; i<current.length; i++){
                 var column = approximateShortestColumn();
-                vm.columns[column].push(current[i];)
+                vm.columns[column].push(current[i]);
             }
         }
     }
