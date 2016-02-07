@@ -53,6 +53,7 @@
         }
 
         function logout(){
+            console.log("Logging out!");
             return $http.post('/api/v1/auth/logout/')
                 .then(logoutSuccessFn, logoutErrorFn);
         }
