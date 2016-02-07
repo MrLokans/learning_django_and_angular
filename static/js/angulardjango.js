@@ -1,7 +1,8 @@
 (function(){
     angular.module('angulardjango', ['angulardjango.config',
                                      'angulardjango.routes',
-                                     'angulardjango.authentication'
+                                     'angulardjango.authentication',
+                                     'angulardjango.layout',
                                      ]);
     angular.module('angulardjango.routes', ['ngRoute']);
 
