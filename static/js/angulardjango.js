@@ -3,6 +3,7 @@
                                      'angulardjango.routes',
                                      'angulardjango.authentication',
                                      'angulardjango.layout',
+                                     'angulardjango.posts',
                                      ]);
     angular.module('angulardjango.routes', ['ngRoute']);
 
