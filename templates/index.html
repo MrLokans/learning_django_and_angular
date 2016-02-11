@@ -17,6 +17,12 @@
     </div>
   </div>
 
+  <a  href="javascript:void(0)" 
+      class="btn btn-primary btn-fab btn-raised mdi-content btn-add-new-post"
+      ng-dialog="/static/templates/posts/new-post.html"
+      ng-gialog-controller="NewPostController as vm"
+      ng-show="vm.isAuthenticated">+</a>
+
   {% include 'scripts.html' %}
 </body>
 </html>
